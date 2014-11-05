@@ -1,6 +1,8 @@
 package com.fourmob.datetimepicker.date;
 
+import android.animation.ObjectAnimator;
 import android.app.Activity;
+import android.content.Context;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.SystemClock;
@@ -19,7 +21,6 @@ import android.widget.TextView;
 
 import com.fourmob.datetimepicker.R;
 import com.fourmob.datetimepicker.Utils;
-import com.nineoldandroids.animation.ObjectAnimator;
 
 import java.text.DateFormatSymbols;
 import java.text.SimpleDateFormat;
@@ -239,7 +240,7 @@ public class DatePickerDialog extends DialogFragment implements View.OnClickList
 		super.onCreate(bundle);
 		Activity activity = getActivity();
 		activity.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
-		mVibrator = ((Vibrator) activity.getSystemService("vibrator"));
+		mVibrator = ((Vibrator) activity.getSystemService(Context.VIBRATOR_SERVICE));
 		if (bundle != null) {
 			mCalendar.set(Calendar.YEAR, bundle.getInt(KEY_SELECTED_YEAR));
 			mCalendar.set(Calendar.MONTH, bundle.getInt(KEY_SELECTED_MONTH));
